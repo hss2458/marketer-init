@@ -7,6 +7,19 @@ footer {
     justify-content: space-around;
     border-bottom: 2px dashed #999999;
 
+    @include screen-lg { //스크린 1200px 이상일 때
+    }
+    @include screen-md { //스크린 992px 이상일 때
+      display: flex;
+      flex-direction: column;
+    }
+    @include screen-sm { //스크린 768px 이상일 때
+      max-width: 100%;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      max-width: 100%;
+    }
+
     .box {
       padding: 0 15px 50px;
       display: flex;
@@ -75,6 +88,18 @@ footer {
         display: flex;
         flex-wrap: wrap;
 
+        @include screen-lg { //스크린 1200px 이상일 때
+        }
+        @include screen-md { //스크린 992px 이상일 때
+          flex-wrap: nowrap;
+        }
+        @include screen-sm { //스크린 768px 이상일 때
+          flex-wrap: nowrap;
+        }
+        @include screen-xs { //스크린 768px 이상일 때
+          flex-wrap: nowrap;
+        }
+
         li {
           position: relative;
           width: 33.33%;
@@ -121,6 +146,20 @@ footer {
     padding: 27px 0 55px;
     font-size: 16px;
 
+    @include screen-md { //스크린 992px 이상일 때
+
+    }
+    @include screen-sm { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     p {
       color: #999999;
 
@@ -138,6 +177,7 @@ footer {
 
     .top-link {
       position: absolute;
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
       width: 42px;
@@ -146,6 +186,13 @@ footer {
       border: 1px solid rgba(212, 212, 212, 0.78);
       border-radius: 5px;
       color: #fff;
+
+      @include screen-sm { //스크린 768px 이상일 때
+        top: 70%;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        top: 70%;
+      }
 
       &:hover {
         background: #00a2d3;

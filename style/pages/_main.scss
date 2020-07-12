@@ -28,18 +28,34 @@
 
     .visual {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
 
       .txt {
-        margin-right: 50px;
-        width: 40%;
+        margin-right: 20px;
+        width: 50%;
         text-transform: capitalize;
         color: #fff;
+
+        @include screen-sm { //스크린 768px 이상일 때
+          width: 80%;
+          margin-right: 0;
+        }
+        @include screen-xs { //스크린 768px 이상일 때
+          width: 80%;
+          margin-right: 0;
+        }
 
         h1 {
           font-size: 38px;
           padding: 20px 0;
+
+          @include screen-sm { //스크린 768px 이상일 때
+            font-size: 26px;
+          }
+          @include screen-xs { //스크린 768px 이상일 때
+            font-size: 19px;
+          }
         }
 
         p {
@@ -47,6 +63,13 @@
           font-size: 18px;
           line-height: 28px;
           font-weight: 400;
+
+          @include screen-sm { //스크린 768px 이상일 때
+            font-size: 14px;
+          }
+          @include screen-xs { //스크린 768px 이상일 때
+            font-size: 10px;
+          }
         }
 
         a {
@@ -66,9 +89,16 @@
       }
 
       .img {
-        width: 50%;
+        width: 40%;
         height: 380px;
-        background: url("../images/main1.png") 50% 50%/cover no-repeat;
+        background: url("../images/main1.png") 50% 50%/contain no-repeat;
+
+        @include screen-sm { //스크린 768px 이상일 때
+          font-size: 26px;
+        }
+        @include screen-xs { //스크린 768px 이상일 때
+          width: 50%;
+        }
       }
     }
   }
@@ -79,19 +109,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 151px;
+  height: auto;
   background: #f6f7f8;
 
   .links {
     display: flex;
     justify-content: center;
 
+    @include screen-md { //스크린 992px 이상일 때
+      flex-wrap: wrap;
+    }
+    @include screen-sm { //스크린 768px 이상일 때
+      flex-wrap: wrap;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      flex-wrap: wrap;
+    }
+
     a {
       display: flex;
       align-items: center;
-      padding: 10px 23px;
+      padding: 40px 23px;
+      transition: 0.5s;
+
+      @include screen-md { //스크린 768px 이상일 때
+        padding: 20px 23px;
+      }
+      @include screen-sm { //스크린 768px 이상일 때
+        padding: 20px 23px;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        padding: 20px 23px;
+      }
+
+      &:hover {
+        img {
+          opacity: 1;
+          transition: 0.5s;
+        }
+      }
 
       img {
+        transition: 0.5s;
         opacity: 0.4;
         width: 154px;
         height: 70px;
@@ -110,6 +169,15 @@
   .item {
     display: flex;
     justify-content: center;
+
+    @include screen-sm { //스크린 768px 이상일 때
+      flex-direction: column;
+      align-items: center;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      flex-direction: column;
+      align-items: center;
+    }
 
     .list {
       display: flex;
@@ -145,6 +213,20 @@
 
   .content {
     display: flex;
+
+    @include screen-lg { //스크린 1200px 이상일 때
+    }
+    @include screen-md { //스크린 992px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @include screen-sm { //스크린 768px 이상일 때
+      max-width: 100%;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      max-width: 100%;
+    }
 
     .video {
       padding: 0 15px;
@@ -201,10 +283,27 @@
   .box-list {
     display: flex;
 
+    @include screen-sm { //스크린 768px 이상일 때
+      flex-direction: column;
+      align-items: center;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      flex-direction: column;
+      align-items: center;
+    }
+
+
     .box {
       width: 33.33%;
       margin: 16px;
       transition: 0.5s;
+
+      @include screen-sm { //스크린 768px 이상일 때
+        width: 60%;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        width: 60%;
+      }
 
       &:hover {
         transform: translateY(-5px);
@@ -346,6 +445,10 @@
       }
 
       span {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #bbbbaa;
+        font-weight: 300;
         font-style: italic;
       }
     }
@@ -359,6 +462,15 @@
     display: flex;
     flex-wrap: wrap;
 
+    @include screen-sm { //스크린 768px 이상일 때
+      flex-direction: column;
+      align-items: center;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      flex-direction: column;
+      align-items: center;
+    }
+
     h3 {
       padding: 20px 0 10px;
     }
@@ -370,9 +482,16 @@
       padding: 30px 15px;
       width: 33.33%;
 
+      @include screen-sm { //스크린 768px 이상일 때
+        width: 100%;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        width: 100%;
+      }
+
       p {
         text-align: center;
-        line-height: 20px;
+        line-height: 25px;
         color: #7c879c;
       }
     }
@@ -395,9 +514,25 @@
   .Testimonials {
     display: flex;
 
+    @include screen-sm { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+    }
+
     .box {
       padding: 15px;
       width: 33.33%;
+
+      @include screen-sm { //스크린 768px 이상일 때
+        width: 100%;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        width: 100%;
+      }
 
       .speech-bubble {
         position: relative;
@@ -449,7 +584,7 @@
 
     p {
       color: #7b7b7b;
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 
@@ -457,10 +592,28 @@
     padding: 50px 0 0;
     display: flex;
 
+    @include screen-sm { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .box {
       width: 33.33%;
       margin: 16px;
       transition: 0.5s;
+
+      @include screen-sm { //스크린 768px 이상일 때
+        width: 100%;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        width: 100%;
+      }
 
       &:hover {
         transform: translateY(-5px);
@@ -509,7 +662,7 @@
         position: relative;
 
         .img {
-          width: 360px;
+          //width: 360px;
           height: 180px;
           position: relative;
           border-radius: 5px 5px 0 0;
@@ -556,9 +709,11 @@
 
             h4 {
               a {
-                font-size: 20px;
-                color: #454545;
                 padding: 15px 0 10px;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 25px;
+                color: #454545;
               }
             }
 
@@ -566,6 +721,7 @@
               padding: 15px 0 10px;
 
               a {
+                font-size: 14px;
                 padding-right: 10px;
                 color: #656565;
 
@@ -616,6 +772,18 @@
 
   .box {
     display: flex;
+    justify-content: center;
+
+    @include screen-sm { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     .item {
       display: flex;
@@ -623,6 +791,13 @@
       align-items: center;
       padding: 30px;
       width: 33.33%;
+
+      @include screen-sm { //스크린 768px 이상일 때
+        width: 100%;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        width: 100%;
+      }
 
       img {
         width: 125px;
@@ -641,6 +816,7 @@
 
         p {
           padding: 0 0 30px;
+          line-height: 24px;
           text-align: center;
           font-size: 15px;
           font-style: italic;
@@ -664,7 +840,7 @@
         padding: 0 10px 20px;
 
         p {
-          width: 300px;
+          line-height: 24px;
         }
       }
 
@@ -708,6 +884,18 @@
   .box {
     display: flex;
     justify-content: space-around;
+
+    @include screen-md { //스크린 992px 이상일 때
+
+    }
+    @include screen-sm { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+    }
 
     .circle {
       display: flex;
@@ -767,11 +955,29 @@
     display: flex;
     justify-content: space-around;
 
+    @include screen-sm { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .icon {
       display: flex;
       justify-content: center;
       padding: 0 100px 0 100px;
       border-right: 1px solid #fff;
+
+      @include screen-sm { //스크린 768px 이상일 때
+        border: none;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        border: none;
+      }
 
       img {
         width: 200px;
@@ -782,9 +988,31 @@
     .contact {
       padding: 0 0 0 50px;
 
+      @include screen-sm { //스크린 768px 이상일 때
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      @include screen-xs { //스크린 768px 이상일 때
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
       h2 {
         padding: 26px 0;
+        font-size: 26px;
+        line-height: 36px;
         color: #fff;
+
+        @include screen-sm { //스크린 768px 이상일 때
+          text-align: center;
+        }
+        @include screen-xs { //스크린 768px 이상일 때
+          text-align: center;
+        }
       }
 
       .input-box {
@@ -796,9 +1024,17 @@
           background: transparent;
           border: 1px solid #fff;
           border-radius: 5px;
+
+          @include screen-sm { //스크린 768px 이상일 때
+            width: 100%;
+          }
+          @include screen-xs { //스크린 768px 이상일 때
+            width: 100%;
+          }
         }
 
         input::placeholder {
+          text-align: center;
           color: #ffffff;
           font-size: 16px;
         }
@@ -820,6 +1056,14 @@
         font-size: 14px;
         font-weight: 700;
         vertical-align: top;
+        transition: 0.5s;
+
+        &:hover {
+          background: #2980b9;
+          color: #ffffff;
+          border: 1px solid #2980b9;
+          transition: 0.5s;
+        }
       }
     }
   }

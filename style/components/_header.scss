@@ -1,6 +1,14 @@
 header {
+
   .top-header {
     background: #343434;
+
+    @include screen-sm { //스크린 768px 이상일 때
+      display: none;
+    }
+    @include screen-xs { //스크린 768px 이상일 때
+      display: none;
+    }
 
     .container {
       display: flex;
@@ -95,7 +103,65 @@ header {
         ul {
           display: flex;
 
+          @include screen-md {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            width: 300px;
+            background: #fff;
+            border-right: 1px solid #ddd;
+            flex-direction: column;
+            justify-content: center;
+            transform: translateX(-97%);
+            transition: 0.6s;
+            &:hover {
+              transform: none;
+            }
+          }
+
+          @include screen-sm {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            width: 300px;
+            background: #fff;
+            border-right: 1px solid #ddd;
+            flex-direction: column;
+            justify-content: center;
+            transform: translateX(-97%);
+            transition: 0.6s;
+            &:hover {
+              transform: none;
+            }
+          }
+
           li {
+            transition: 0.6s;
+
+            @include screen-md {
+              text-align: center;
+              padding: 20px 0;
+
+              &:hover {
+                background: #eeeeee;
+                transition: 0.6s;
+              }
+            }
+
+            @include screen-sm {
+              text-align: center;
+              padding: 20px 0;
+
+              &:hover {
+                background: #eeeeee;
+                transition: 0.6s;
+              }
+            }
+
             a {
               padding-right: 30px;
               color: #2f362f;
@@ -111,6 +177,20 @@ header {
             }
           }
         }
+      }
+
+      .btn-menu {
+        font-size: 30px;
+        padding: 10px 30px;
+        display: none;
+
+        @include screen-md {
+          display: block;
+        }
+        @include screen-sm {
+          display: block;
+        }
+
       }
     }
   }
